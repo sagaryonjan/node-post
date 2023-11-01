@@ -11,12 +11,17 @@
 
 Clone the repository and run
 ```
+git clone git@github.com:sagaryonjan/node-post.git
+
 yarn   # or npm install
 
 ```
 
 Make a copy of `.env.example` as `.env` and update your application details and database credentials. Now, run the migrations and seed the database.
+
 ```
+NODE_ENV= development || test
+
 npm run migrate
 npm run seed
 ```
@@ -40,6 +45,10 @@ npm run make:migration create_users_table
 npm run make:seeder users_seeder_table
 ```
 
+You can find the swagger documentation on link
+
+http://localhost:8000/api/docs/
+
 ## Tests
 
 To run the tests you need to create a separate test database. Don't forget to update your `.env` file to include the connections for test database.
@@ -47,8 +56,9 @@ To run the tests you need to create a separate test database. Don't forget to up
 # update env to test
 NODE_ENV=test
 ```
-After updating env. we must run seeder inorder to run test succesfully. 
+After updating env. we must run migration & seeder for the test as inorder to run test successfully. 
 ```
+npm run migrate
 npm run seed
 ```
 It will create a new user and post. Now you can run the test.
