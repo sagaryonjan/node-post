@@ -2,10 +2,10 @@ import { PostInterface } from "../core/interfaces";
 import { getPageParams, paginateData } from "../core/utils/paginate";
 import Post from '../models/post.model';
 
-export const fetchAllWithFilterAndPage = async (query:any) => {
+export const fetchAllWithPage = async (query:any) => {
   const pageParams = getPageParams(query);
 
-  const posts = await Post.findWithFilterAndPage(pageParams);
+  const posts = await Post.fetchAllWithPage(pageParams);
   const totalPost = await Post.count();
 
   return paginateData(posts, pageParams, totalPost.count);

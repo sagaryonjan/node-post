@@ -31,7 +31,7 @@ app.use(express.json());
 app.use('/api', routes);
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Welcome to Blog Post API Server');
+  res.send(`Welcome to Blog Post API Server. Blog API documentation link: http://${config.host}:${config.env_port}/api/docs` );
 });
 
 app.use(genericErrorHandler);

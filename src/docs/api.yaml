@@ -35,6 +35,15 @@ paths:
         - "Post"
       security:
         - JWT: []
+      parameters:
+        - in: "query"
+          name: "page"
+          type: "integer"
+          description: "Page"
+        - in: "query"
+          name: "pageSize"
+          type: "integer"
+          description: "size of the page"
       responses:
         200:
           description: "OK"

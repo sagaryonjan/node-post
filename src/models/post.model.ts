@@ -6,7 +6,7 @@ import BaseModel from './base.model';
 export class Post extends BaseModel {
   public static table: string = Table.POSTS;
 
-  static findWithFilterAndPage(
+  static fetchAllWithPage(
     pageParams: { page: number; pageSize: number },
   ) {
     const offset = (pageParams.page - 1) * pageParams.pageSize;
@@ -18,7 +18,7 @@ export class Post extends BaseModel {
   }
 
   static count() {
-    return this.query().count().first();
+    return this.query().count('*', {as: 'count'}).first();
   }
 
   static truncate () {

@@ -16,7 +16,7 @@ export const fetchAll = async (
   next: NextFunction
 ) => {
   try {
-    const data = await postService.fetchAllWithFilterAndPage(req.query);
+    const data = await postService.fetchAllWithPage(req.query);
       
     res.status(StatusCodes.OK).json({
       code: StatusCodes.OK,
