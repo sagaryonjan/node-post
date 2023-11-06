@@ -28,6 +28,9 @@ export const create = async (attribute: PostInterface) => {
 }
 
 export const update = async (id: number, attribute: PostInterface) => {
+  const user = await User.findById(attribute.user_id);
+  if(!user) throw new BadRequestError('User not found. Please add the valid user_id')
+  
   await Post.update({id}, attribute);
 
   return {id, ...attribute};

@@ -28,6 +28,10 @@ npm run seed
 Finally, start the application.
 ```
 npm run dev  (For development)
+or 
+
+npm run build
+npm run start
 ```
 
 Navigate to http://localhost:8000/api/docs/ to verify installation.
