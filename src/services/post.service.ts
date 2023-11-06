@@ -1,6 +1,8 @@
+import BadRequestError from "../core/exceptions/BadRequestError";
 import { PostInterface } from "../core/interfaces";
 import { getPageParams, paginateData } from "../core/utils/paginate";
 import Post from '../models/post.model';
+import User from "../models/user.model";
 
 export const fetchAllWithPage = async (query:any) => {
   const pageParams = getPageParams(query);
@@ -16,6 +18,10 @@ export const getPostById = (id: number) => {
 }
 
 export const create = async (attribute: PostInterface) => {
+
+  const user = await User.findById(attribute.user_id);
+  if(!user) throw new BadRequestError('User not found. Please add the valid user_id')
+
   const [id] = await Post.insert(attribute);
 
   return {id, ...attribute};
