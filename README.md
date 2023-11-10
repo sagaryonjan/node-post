@@ -17,7 +17,44 @@ yarn   # or npm install
 
 ```
 
-Make a copy of `.env.example` as `.env` and update your application details and database credentials. Now, run the migrations and seed the database.
+Make a copy of `.env.example` as `.env` and update your application details and database credentials.
+
+```
+# Application port (Optional)
+# Default : 8000
+PORT=8000
+
+# App host (Optional)
+# Default: 127.0.0.1
+APP_HOST=127.0.0.1
+
+# Node env (Optional)
+# Default: development
+NODE_ENV=development
+
+#Access token secret
+ACCESS_TOKEN_SECRET=access-token-secret
+#Refresh token secret
+REFRESH_TOKEN_SECRET=referch-token-secret
+
+# Database Connection
+DB_CLIENT=<DB-CLIENT>
+DB_HOST=<DB-HOST>
+DB_PORT=<DB-PORT>
+DB_NAME=<DB-NAME>
+DB_USER=<DB-USER>
+DB_PASSWORD=<DB-PASSWORD>
+
+# Test DB Connection
+TEST_DB_HOST=<DB-HOST>
+TEST_DB_PORT=<DB-PORT>
+TEST_DB_NAME=<DB-NAME>
+TEST_DB_USER=<DB-USER>
+TEST_DB_PASSWORD=<DB-USER>
+
+```
+
+Now, run the migrations and seed the database.
 
 ```
 NODE_ENV= development || test
@@ -71,3 +108,5 @@ It will create a new user and post. Now you can run the test.
 npm run test
 
 ```
+
+
